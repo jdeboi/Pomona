@@ -1,6 +1,6 @@
 /*
-* Autonomous, Edge-finding Car
-* March, 2015
+* Autonomous, Edge-Finding Car
+* March 2015
 * Pomona College
 *
 * This exercise is designed to introduce H-Bridges and DC Motors.
@@ -16,8 +16,8 @@ const int motor2Pin2 = 9;    // H-bridge pin 15, 4A
 const int enablePin = 4;    // H-bridge enable pin
 
 // pins for the ultrasonic sensor
-int trigPin 13
-int echoPin 12
+int trigPin 13;
+int echoPin 12;
 
 void setup() {
   Serial.begin (9600);
@@ -51,7 +51,7 @@ void loop() {
   Serial.println(" cm");
   
   if (distance >= 10 || distance <= 0){
-    turnCarInPlace(90);
+    turnInPlace(90);
   }
   else {
     advanceCar(space);
@@ -59,38 +59,50 @@ void loop() {
 }
 
 // EXERCISE: Write this function
-void turnCarInPlace(int rotation) {
+void turnInPlace(int rotation) {
   // turn motor for a specified amount of time
   int turnTime = map(abs(rotation)%360, 0, 360, 0, maxDelay);
   // OR turn motor at a specific voltage to maxVoltage (if that equals a full rotation)
   // int turnTime = map(abs(rotation)%360, 0, 360, 0, maxVoltage);
   startCar();
   if(rotation < 0) {
-    // LESSON: How to get car to turn in place
-    analogWrite(motor1Pin1, 0);   // set leg 1 of the H-bridge low
-    analogWrite(motor1Pin2, analogMotorVoltage);  // set leg 2 of the H-bridge high 
-    // move motors in opposite directions
-    analogWrite(motor2Pin1, analogMotorVoltage);  
-    analogWrite(motor2Pin2, 0);
+    turnInPlaceLeft(analogMotorVoltage);
     delay(turnTime); 
     stopCar();  
   }
   else {
-    analogWrite(motor1Pin1, analogMotorVoltage);  
-    analogWrite(motor1Pin2, 0); 
-    analogWrite(motor2Pin1, 0); 
-    analogWrite(motor2Pin2, analogMotorVoltage);
+    turnInPlaceRight(analogMotorVoltage);
     delay(turnTime);  
     stopCar();  
   }
 }
 
+void turnInPlaceLeft(int volts) {
+  // EXERCISE: Write this function
+  // LESSON: How to get car to turn in place
+  analogWrite(motor1Pin1, 0);   // set leg 1 of the H-bridge low
+  analogWrite(motor1Pin2, volts);  // set leg 2 of the H-bridge high 
+  // move motors in opposite directions
+  analogWrite(motor2Pin1, volts);  
+  analogWrite(motor2Pin2, 0);
+}
+
+void turnInPlaceRight(int volts) {
+  // EXERCISE: Write this function
+  analogWrite(motor1Pin1, volts);  
+  analogWrite(motor1Pin2, 0); 
+  analogWrite(motor2Pin1, 0); 
+  analogWrite(motor2Pin2, volts);
+}
+
 void startCar() {
+  // EXERCISE: Write this function
   // set enablePin high so that motor can turn on:
   digitalWrite(enablePin, HIGH);
 }
 
 void stopCar() {
+  // EXERCISE: Write this function
   digitalWrite(enablePin, LOW);
   digitalWrite(motor1Pin1, LOW);
   digitalWrite(motor1Pin2, LOW);
