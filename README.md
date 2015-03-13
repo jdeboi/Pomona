@@ -1,10 +1,8 @@
 Arduino 101
 ===========
 
-Pomona College
-
-March 2015
-
+Pomona College  
+March 2015  
 [Jenna deBoisblanc](http://jdeboi.com)
 
 Repository Contents
