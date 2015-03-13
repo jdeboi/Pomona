@@ -15,9 +15,12 @@ const int motor2Pin1 = 6;    // H-bridge pin 10, 3A
 const int motor2Pin2 = 9;    // H-bridge pin 15, 4A
 const int enablePin = 4;    // H-bridge enable pin
 
+int analogMotorVoltage = 50;
+int maxDelay = 500;
+
 // pins for the ultrasonic sensor
-int trigPin 13;
-int echoPin 12;
+int trigPin = 13;
+int echoPin = 12;
 
 void setup() {
   Serial.begin (9600);
@@ -51,10 +54,11 @@ void loop() {
   Serial.println(" cm");
   
   if (distance >= 10 || distance <= 0){
+    stopCar();
     turnInPlace(90);
   }
   else {
-    advanceCar(space);
+    moveCar(10);
   }
 }
 
@@ -108,4 +112,25 @@ void stopCar() {
   digitalWrite(motor1Pin2, LOW);
   digitalWrite(motor2Pin1, LOW);
   digitalWrite(motor2Pin2, LOW);
+}
+
+void moveCar(int carVelocity) {
+  // EXERCISE: Write this function
+  // how long, how fast
+  if(carVelocity > 0) moveForward(carVelocity%255);
+  else moveBackward(abs(carVelocity)%255);
+}
+
+void moveForward(int carSpeed) {
+  analogWrite(motor1Pin1, carSpeed);  
+  analogWrite(motor1Pin2, 0); 
+  analogWrite(motor2Pin1, carSpeed); 
+  analogWrite(motor2Pin2, 0);
+}
+
+void moveBackward(int carSpeed) {
+  analogWrite(motor1Pin1, 0);  
+  analogWrite(motor1Pin2, carSpeed); 
+  analogWrite(motor2Pin1, 0); 
+  analogWrite(motor2Pin2, carSpeed);
 }
