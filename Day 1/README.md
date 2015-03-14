@@ -7,7 +7,7 @@ Day 1
 2. When 2 minutes have passed, set off the alarm.
 3. If a button is pressed, reset the alarm.
 4. Add an RGB LED.
-5. As the 2 minute mark approaches, change the LED color (a gradient from red to green).
+5. Map the remaining time to an LED color (a gradient from green to yellow to red).
 
 
 **Project 2**: Build a tea kettle alarm.
