@@ -1,3 +1,4 @@
+/**************************************************************************/
 /*
   Arduinio Xylophone
   March 2015
@@ -13,6 +14,7 @@
   INSTALL
   AC Tone Library http://playground.arduino.cc/Code/ToneAC
 */
+/**************************************************************************/
 
 #include <toneAC.h>
 
@@ -25,7 +27,7 @@ int MaxPlayTime[8] = {90, 90, 90, 90, 90, 90, 90, 90};		 //time each note remain
 
 boolean activePad[8] = {0, 0, 0, 0, 0, 0, 0, 0};            // array of flags of pad currently playing
 int PinPlayTime[8] = {0, 0, 0, 0, 0, 0, 0, 0};              // counter since pad started to play
-boolean VelocityFlag = true;				    // set this variable to true if you'd like the volume
+boolean velocityOn = true;				    // set this variable to true if you'd like the volume
 int analogPin = A0;                                         //to correspond to force of hit
 int hitForce = 0;
 int pad = 0;
@@ -99,7 +101,7 @@ void checkSensors() {
 // MAKE SOUND
 ////////////////////////////////////////////////////////////////
 void playKey(int freq, int velocity) {
-  if (VelocityFlag == true) {
+  if (velocityOn == true) {
     velocity = velocity / 100;		
   }					
   else {
