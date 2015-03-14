@@ -8,10 +8,9 @@ March 2015
 Repository Contents
 -------------------
 
-Day 1
-- coming soon
+Day 1: Arduino Basics
 
-Day 2
+Day 2: Arduino Projects
 - **H-Bridge** (*Autonomous Car*)
 - **Multiplexer** (*Xylophone or WhackAMole*)
 - **I2C** (*Accelerometer Bike Turning Indicators*)

@@ -1,12 +1,17 @@
 Day 1
 ===============
 
-**Project**: Build an energy-saving temperature alarm for use in the new Millikan. 
+**Project 1**: Build a teeth brushing timer.
 
 1. Start by programming the blinking LED alarm.
-2. Add a button to turn the alarm on/off.
-3. Build and calibrate the thermistor circuit.
-4. Reprogram the button to toggle the season so that in the winter, temperatures above 25 degrees Celsius trigger the alarm; in the summer, temperatures below 25 trigger the alarm. 
-5. Add an RGB LED to indicate how much energy is being saved (a color gradient from red to green).
-6. (optional) Convert the room temperature alarm to a tea-kettle alarm.
-7. (optional) Add a speaker and tone library to add complexity to the alarm system; when the tea is done, whistle!
+2. When 2 minutes has passed, set off the alarm.
+3. If a button is pressed, reset the alarm.
+4. Add an RGB LED.
+5. As the 2 minute mark approaches, change the LED color (a gradient from red to green).
+
+
+**Project 2**: Build a tea kettle alarm.
+
+1. Build and calibrate the thermistor circuit.
+2. When the tea hits a certain temperature, set off the blinking alarm.
+3. Add a speaker and tone library to whistle when the tea is done!
