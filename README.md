@@ -12,7 +12,6 @@ Day 1
 - coming soon
 
 Day 2
-- *Car* (H-Bridge, DC Motors)
-- *Xylophone* (multiplexer, piezos)
-- *WhackAMole* (multiplexer, piezos)
-- *Bike* (accelerometer, I2C)
+- **H-Bridge** (*Autonomous Car*)
+- **Multiplexer** (*Xylophone or WhackAMole*)
+- **I2C** (*Accelerometer Bike Turning Indicators*)
