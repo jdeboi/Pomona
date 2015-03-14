@@ -12,5 +12,5 @@ Day 1: Arduino Basics
 
 Day 2: Arduino Projects
 - **H-Bridge** (*Autonomous Car*)
-- **Multiplexer** (*Xylophone or WhackAMole*)
+- **Multiplexer** (*Xylophone or Whack A Mole*)
 - **I2C** (*Accelerometer Bike Turning Indicators*)
