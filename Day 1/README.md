@@ -2,6 +2,7 @@ Day 1
 ===============
 
 **Project**: Build an energy-saving temperature alarm for use in the new Millikan. 
+
 1. Start by programming the blinking LED alarm.
 2. Add a button to turn the alarm on/off.
 3. Build and calibrate the thermistor circuit.
