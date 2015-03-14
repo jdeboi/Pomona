@@ -9,6 +9,8 @@ Repository Contents
 -------------------
 
 Day 1: Arduino Basics
+- **Toothbrush Timer**
+- **Tea Kettle Alarm**
 
 Day 2: Arduino Projects
 - **H-Bridge** (*Autonomous Car*)
