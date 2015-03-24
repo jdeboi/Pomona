@@ -40,11 +40,11 @@ float x_g, y_g, z_g;
 /**************************************************************************/
 
 void setup() {
-  // EXERCISE: fill out this function
+  // EXERCISE: fill out the setup
 }
 
 void loop() {
-  // EXERCISE: fill out this function
+  // EXERCISE: fill out the setup
 }
 
 void checkForTurning() {
@@ -78,7 +78,8 @@ bool MMA8451Begin() {
   writeRegister8(MMA8451_REG_CTRL_REG2, 0x40); // reset
   while (readRegister8(MMA8451_REG_CTRL_REG2) & 0x40);
   
-  // EXERCISE: Enable 4g mode.
+  // EXERCISE: Enable 2g mode.
+  writeRegister8(MMA8451_REG_XYZ_DATA_CFG, MMA8451_RANGE_4_G);
   
   writeRegister8(MMA8451_REG_CTRL_REG2, 0x02);  // High res
   writeRegister8(MMA8451_REG_CTRL_REG4, 0x01);  // Low noise!
@@ -125,7 +126,6 @@ void MMA8451Read() {
   z_g = (float)z / divider;
   
   // EXERCISE: Print the acceleration.
-
 }
 
 uint8_t getOrientation() {
