@@ -14,11 +14,11 @@
 #include <toneAC.h>
 
 int analogPin = 0;
-int moleLEDPins[] = {2, 3, 4, 5, 6, 7, 8, 9};
-int moleStates[] = {0, 0, 0, 0, 0, 0, 0 , 0};
-int hitThresh[] = {110, 110, 110, 110, 110, 110, 110, 110};
-int moleNote[] = { 262, 196, 196, 220, 196, 0, 247, 262 };
-boolean velocityOn = true;
+int moleLEDPins[8];
+int moleStates[8];
+int hitThresh[8];
+int moleNote[8];
+boolean volumeOn = true;
 int pause = 1000;
 int duration = 2000;
 int lastUpdate = 0;
@@ -33,12 +33,7 @@ int count = 0;   //which y pin we are selecting
 int multiplex[8];
 
 void setup() {
-  lastUpdate = millis();
-  delay(1500);
-  Serial.begin(9600);
-  for(int i = 0; i < 8; i++) {
-    pinMode(moleLEDPins[i], OUTPUT);
-  }
+  
 }
 
 void loop() {
@@ -49,27 +44,11 @@ void loop() {
 }
 
 void setMoleStates() {
-  if(millis() - lastUpdate > pause) {
-    int randNum = int(random(8));
-    if(moleStates[randNum] == 0) {
-      moleStates[randNum] = millis();
-      lastUpdate = millis();
-      pause-=10;
-      duration-=5;
-    }
-  }
+
 }
 
 void updateMoleStates() {
-  for(int i = 0; i < 8; i++) {
-    if(moleStates[i] > 0) {
-      if (millis() - moleStates[i] > duration) {
-        moleStates[i] = 0;
-        lives--;
-        if(lives == 0) lostSequence();
-      }
-    }  
-  }
+
 }
 
 void checkPiezos() {
@@ -89,46 +68,21 @@ void checkPiezos() {
 }
 
 void hit(int num, int force) {
-  if(moleStates[num] > 0) {
-    score+= 100;
-    moleStates[num] = 0;
-    playKey(moleNote[num],force);
-  }
+  
 }
 
 void updateLEDStates() {
-  for(int i = 0; i < 8; i++) {
-    if(moleStates[i] > 0) digitalWrite(moleLEDPins[i], HIGH);
-    else digitalWrite(moleLEDPins[i], LOW);
-  }
+  
 }
 
 void lostSequence() {
-  blinkLEDs();
-  blinkLEDs();
-  Serial.println("Your score is: " + score);
-  while(1);
+  
 }
 
 void blinkLEDs() {
-  for(int i = 0; i < 8; i++) {
-    digitalWrite(moleLEDPins[i], HIGH);
-  }
-  delay(500);
-  for(int i = 0; i < 8; i++) {
-    digitalWrite(moleLEDPins[i], LOW);
-  }
-  delay(500);
+
 }
 
-void playKey(int freq, int velocity) {
-  if (velocityOn == true) {
-    velocity = velocity / 100;		
-  }					
-  else {
-    velocity = 10;  
-  }
-  noToneAC();
-  int duration = map(velocity, 0, 1023, 0, 500);
-  toneAC(freq, velocity, duration, true);
+void playKey(int freq, int force) {
+
 }
